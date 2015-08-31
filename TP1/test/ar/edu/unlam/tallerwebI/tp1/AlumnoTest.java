@@ -34,14 +34,25 @@ public class AlumnoTest {
 	@Test
 	public void testEstaPromocionado(){
 		Alumno materia = new Alumno();
-		materia.calificarPrimerParcial(2);
-		materia.calificarSegundoParcial(8);
+		materia.calificarPrimerParcial(4);
+		materia.calificarSegundoParcial(9);
 		Assert.assertFalse(materia.estaPromocionado());
 		
-		materia.calificarPrimerParcial(4);
+		materia.calificarPrimerParcial(3);
 		Assert.assertFalse(materia.estaPromocionado());
 		
 		materia.calificarPrimerParcial(10);
+		Assert.assertTrue(materia.estaPromocionado());
+	}
+	
+	@Test
+	public void testEstaPromocionado1(){
+		Alumno materia = new Alumno();
+		materia.calificarPrimerParcial(3);
+		materia.calificarSegundoParcial(10);
+		Assert.assertFalse(materia.estaPromocionado());
+		
+		materia.calificarPrimerParcial(9);
 		Assert.assertTrue(materia.estaPromocionado());
 	}
 }
